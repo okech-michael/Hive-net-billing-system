@@ -1,0 +1,27 @@
+{
+  "name": "hivenet",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/api",
+    "apps/web"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w @hivenet/api\" \"npm run dev -w @hivenet/web\"",
+    "build": "npm run build -w @hivenet/api && npm run build -w @hivenet/web",
+    "test": "npm run test -w @hivenet/api",
+    "db:generate": "npm run db:generate -w @hivenet/api",
+    "db:migrate": "npm run db:migrate -w @hivenet/api",
+    "db:deploy": "npm run db:deploy -w @hivenet/api",
+    "db:seed": "npm run db:seed -w @hivenet/api"
+  },
+  "devDependencies": {
+    "concurrently": "9.1.2"
+  },
+  "overrides": {
+    "multer": "2.5.0"
+  },
+  "engines": {
+    "node": ">=20.19"
+  }
+}
